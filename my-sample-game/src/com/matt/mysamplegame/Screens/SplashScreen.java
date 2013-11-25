@@ -1,5 +1,9 @@
 package com.matt.mysamplegame.Screens;
 
+import aurelienribon.tweenengine.Tween;
+import aurelienribon.tweenengine.TweenEquations;
+import aurelienribon.tweenengine.TweenManager;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL10;
@@ -8,6 +12,7 @@ import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.matt.mysamplegame.MySampleGame;
+import com.matt.mysamplegame.TweenAccessors.SpriteTween;
 
 public class SplashScreen implements Screen {
 	
@@ -15,6 +20,7 @@ public class SplashScreen implements Screen {
 	Sprite splashSprite; // more advanced -- image manipulation
 	SpriteBatch batch; // sends bound images (for speed)
 	MySampleGame game;
+	TweenManager manager;
 	
 	public SplashScreen(MySampleGame aGame) {
 		this.game = aGame;
@@ -24,7 +30,7 @@ public class SplashScreen implements Screen {
 	public void render(float delta) {
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
-		
+		manager.update(delta);
 		batch.begin();
 		splashSprite.draw(batch);
 		batch.end();
@@ -45,6 +51,12 @@ public class SplashScreen implements Screen {
 		splashSprite.setPosition(0,0);
 	
 		batch = new SpriteBatch();
+		
+		Tween.registerAccessor(Sprite.class, new SpriteTween());
+		
+		manager = new TweenManager();
+		
+		Tween.to(splashSprite, SpriteTween.ALPHA, 3f).target(1).ease(TweenEquations.easeInQuad).start(manager);
 	}
 
 	@Override
