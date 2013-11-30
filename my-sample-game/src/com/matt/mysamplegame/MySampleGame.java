@@ -8,7 +8,7 @@ import com.matt.mysamplegame.Screens.SplashScreen;
 //public class MySampleGame implements ApplicationListener {
 public class MySampleGame extends Game {
 	
-	public static final String VERSION = "0.01 Pre-Alpha";
+	public static final String VERSION = "0.2 Pre-Alpha";
 	public static final String LOG = "Angry Masons";
 	
 	@Override

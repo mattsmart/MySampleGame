@@ -2,6 +2,7 @@ package com.matt.mysamplegame.Screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -9,9 +10,12 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
+import com.badlogic.gdx.scenes.scene2d.utils.Align;
 import com.matt.mysamplegame.MySampleGame;
 
 public class MainMenu implements Screen {
@@ -24,6 +28,7 @@ public class MainMenu implements Screen {
 	Skin skin;
 	SpriteBatch batch;
 	TextButton button;
+	Label label;
 	
 	public MainMenu(MySampleGame aGame) {
 		this.game = aGame;
@@ -75,7 +80,15 @@ public class MainMenu implements Screen {
 			}
 		});
 		
+		LabelStyle ls = new LabelStyle(white, Color.WHITE);
+		label = new Label("My Sample Game", ls);
+		label.setX(0);
+		label.setX(Gdx.graphics.getHeight() / 2 + 100);
+		label.setWidth(width);
+		label.setAlignment(Align.center);
+		
 		stage.addActor(button);
+		stage.addActor(label);
 	}
 
 	@Override

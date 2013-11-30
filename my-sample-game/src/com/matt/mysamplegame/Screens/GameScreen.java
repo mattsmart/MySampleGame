@@ -2,11 +2,12 @@ package com.matt.mysamplegame.Screens;
 
 import com.badlogic.gdx.Screen;
 import com.matt.mysamplegame.MySampleGame;
+import com.matt.mysamplegame.View.CustomWorld;
 
 public class GameScreen implements Screen {
 
 	MySampleGame game;
-	//World world;
+	CustomWorld customWorld;
 	//WorldRenderer render;
 	
 	public GameScreen(MySampleGame aGame) {
@@ -23,6 +24,7 @@ public class GameScreen implements Screen {
 
 	@Override
 	public void show() {
+		
 	}
 
 	@Override
