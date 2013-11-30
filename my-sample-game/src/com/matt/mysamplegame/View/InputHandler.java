@@ -2,12 +2,17 @@ package com.matt.mysamplegame.View;
 
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.math.Vector3;
+import com.matt.mysamplegame.Model.Bullet;
 import com.matt.mysamplegame.Model.Ship;
 
 public class InputHandler implements InputProcessor{
 
 	CustomWorld world;
 	Ship ship;
+	Vector3 touch = new Vector3();
+	Vector2 vec2Touch = new Vector2(); 
 	
 	public InputHandler(CustomWorld world) {
 		this.world = world;
@@ -68,7 +73,16 @@ public class InputHandler implements InputProcessor{
 
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-		
+		touch.set(screenX, screenY, 0);
+		world.getRenderer().getCamera().unproject(touch);
+		vec2Touch.set(touch.x, touch.y);
+		ship = world.getShip();
+		world.addBullet(new Bullet(Bullet.SPEED, // speed
+				0, // rot
+				//new Vector2(ship.getPosition().x + ship.getWidth() / 2, ship.getPosition().y + ship.getHeight() / 2), // pos
+				new Vector2(ship.getPosition().x, ship.getPosition().y), // pos
+				.1f, .4f, // width and height
+				new Vector2(vec2Touch.sub(ship.getPosition()).nor()))); // velocity
 		return true;
 	}
 
