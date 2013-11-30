@@ -83,7 +83,7 @@ public class MainMenu implements Screen {
 		LabelStyle ls = new LabelStyle(white, Color.WHITE);
 		label = new Label("My Sample Game", ls);
 		label.setX(0);
-		label.setX(Gdx.graphics.getHeight() / 2 + 100);
+		label.setY(Gdx.graphics.getHeight() / 2 + 100);
 		label.setWidth(width);
 		label.setAlignment(Align.center);
 		

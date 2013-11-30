@@ -13,6 +13,7 @@ public class GameScreen implements Screen {
 	
 	public GameScreen(MySampleGame game) {
 		this.game = game;
+		world = new CustomWorld(game);
 		render = new CustomWorldRenderer(world);
 	}
 	

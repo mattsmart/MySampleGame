@@ -13,7 +13,7 @@ public class MySampleGame extends Game {
 	
 	@Override
 	public void create() {
-		Texture.setEnforcePotImages(false);
+		//Texture.setEnforcePotImages(false);
 		setScreen(new SplashScreen(this));
 	}
 

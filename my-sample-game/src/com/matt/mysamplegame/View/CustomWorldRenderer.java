@@ -1,6 +1,7 @@
 package com.matt.mysamplegame.View;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -12,7 +13,7 @@ public class CustomWorldRenderer {
 	CustomWorld world;
 	SpriteBatch batch;
 	Ship ship;
-	OrthographicCamera cam;
+	Camera cam;
 	Texture shipTexture;
 	
 	public CustomWorldRenderer(CustomWorld world) {
