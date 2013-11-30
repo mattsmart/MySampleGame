@@ -37,5 +37,7 @@ public abstract class MoveableEntity extends Entity {
 	public void setRotation(float rotation) {
 		this.rotation = rotation;
 	}
+	
+	public abstract void update();
 
 }

@@ -3,19 +3,23 @@ package com.matt.mysamplegame.Screens;
 import com.badlogic.gdx.Screen;
 import com.matt.mysamplegame.MySampleGame;
 import com.matt.mysamplegame.View.CustomWorld;
+import com.matt.mysamplegame.View.CustomWorldRenderer;
 
 public class GameScreen implements Screen {
 
 	MySampleGame game;
-	CustomWorld customWorld;
-	//WorldRenderer render;
+	CustomWorld world;
+	CustomWorldRenderer render;
 	
-	public GameScreen(MySampleGame aGame) {
-		this.game = aGame;
+	public GameScreen(MySampleGame game) {
+		this.game = game;
+		render = new CustomWorldRenderer(world);
 	}
 	
 	@Override
 	public void render(float delta) {
+		world.update();
+		render.render();
 	}
 
 	@Override
@@ -42,6 +46,7 @@ public class GameScreen implements Screen {
 
 	@Override
 	public void dispose() {
+		world.dispose();
 	}
 
 }

@@ -12,9 +12,8 @@ public class CustomWorld {
 
 	public CustomWorld(MySampleGame game) {
 		this.game = game;
-		
 		float SPEED = 5f;
-		float rotation = 0f;
+		float rotation = 0;
 		int height = 1;
 		int width = 1;
 		Vector2 pos = new Vector2(Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight() / 2);	
@@ -24,5 +23,12 @@ public class CustomWorld {
 	public Ship getShip() {
 		return ship;
 	}
+
+	public void update() {
+		ship.update();
+	}
 	
+	public void dispose() {
+
+	}
 }

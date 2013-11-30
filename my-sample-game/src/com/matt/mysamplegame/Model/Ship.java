@@ -7,5 +7,11 @@ public class Ship extends MoveableEntity {
 	public Ship(float SPEED, float rotation, Vector2 position, float width, float height) {
 		super(SPEED, rotation, position, width, height);
 	}
+
+	@Override
+	public void update() {
+		
+	}
+	
 	
 }
