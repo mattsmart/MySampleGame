@@ -2,19 +2,24 @@ package com.matt.mysamplegame;
 
 //import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.graphics.FPSLogger;
 import com.badlogic.gdx.graphics.Texture;
+import com.matt.mysamplegame.Screens.GameScreen;
 import com.matt.mysamplegame.Screens.SplashScreen;
 
 //public class MySampleGame implements ApplicationListener {
 public class MySampleGame extends Game {
 	
 	public static final String VERSION = "0.2 Pre-Alpha";
-	public static final String LOG = "Angry Masons";
+	public static final String LOG = "My Sample Game";
+	FPSLogger log;
 	
 	@Override
 	public void create() {
 		//Texture.setEnforcePotImages(false);
-		setScreen(new SplashScreen(this));
+		//setScreen(new SplashScreen(this));
+		log = new FPSLogger();
+		setScreen(new GameScreen(this));
 	}
 
 	@Override
@@ -25,6 +30,7 @@ public class MySampleGame extends Game {
 	@Override
 	public void render() {		
 		super.render();
+		log.log();
 	}
 
 	@Override

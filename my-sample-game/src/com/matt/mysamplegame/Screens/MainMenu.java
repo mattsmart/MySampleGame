@@ -30,8 +30,8 @@ public class MainMenu implements Screen {
 	TextButton button;
 	Label label;
 	
-	public MainMenu(MySampleGame aGame) {
-		this.game = aGame;
+	public MainMenu(MySampleGame game) {
+		this.game = game;
 	}
 	
 	@Override
