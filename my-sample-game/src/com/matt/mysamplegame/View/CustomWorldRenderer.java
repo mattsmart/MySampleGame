@@ -63,6 +63,7 @@ public class CustomWorldRenderer {
 		sr = new ShapeRenderer();
 		
 		exhaust = new ParticleEmitter();
+		
 		try {
 			exhaust.load(Gdx.files.internal("data/exhaust").reader(2024));
 		} catch (IOException e) {
@@ -156,7 +157,7 @@ public class CustomWorldRenderer {
 		float angle = ship.getRotation();
 		exhaust.getAngle().setLow(angle + 270);
 		exhaust.getAngle().setHighMin(angle + 270 - 45);
-		exhaust.getAngle().setHighMax(angle + 270 - 45);
+		exhaust.getAngle().setHighMax(angle + 270 + 45);
 	}
 	
 	public void dispose() {

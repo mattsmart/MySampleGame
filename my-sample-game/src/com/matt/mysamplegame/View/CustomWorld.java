@@ -88,6 +88,7 @@ public class CustomWorld {
 				
 				if (enemy.getBounds().overlaps(bullet.getBounds())) {
 					Gdx.app.log(MySampleGame.LOG, "Enemy Hit :)");
+					
 					eIter.remove();
 					bIter.remove();
 				}
