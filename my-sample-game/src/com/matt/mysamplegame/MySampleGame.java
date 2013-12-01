@@ -12,6 +12,7 @@ public class MySampleGame extends Game {
 	
 	public static final String VERSION = "0.2 Pre-Alpha";
 	public static final String LOG = "My Sample Game";
+	public static boolean DEBUG = false;
 	FPSLogger log;
 	
 	@Override

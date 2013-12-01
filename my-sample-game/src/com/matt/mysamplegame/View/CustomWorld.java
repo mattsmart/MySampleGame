@@ -57,22 +57,36 @@ public class CustomWorld {
 
 	
 	public void update() {
+		// Update ship
 		ship.update();
 		
+		// Update bullets
 		bIter = bullets.iterator();
-		while(bIter.hasNext()){
+		while (bIter.hasNext()) {
 			bullet = bIter.next();
 			bullet.update(ship);
+		}
+		
+		// Update enemies, check for ship/enemy collision
+		eIter = enemies.iterator();
+		while (eIter.hasNext()) {
+			enemy = eIter.next();
+			enemy.advance(Gdx.graphics.getDeltaTime(), ship);
+			if (ship.getBounds().overlaps(enemy.getBounds()))
+				Gdx.app.log(MySampleGame.LOG, "SHIP HIT :0");
+			
+		}
+		
+		// Check for bullet/enemy collisions
+		bIter = bullets.iterator();
+		while (bIter.hasNext()){
+			bullet = bIter.next();
 			
 			eIter = enemies.iterator();
-			while(eIter.hasNext()) {
+			while (eIter.hasNext()) {
 				enemy = eIter.next();
-				enemy.advance(Gdx.graphics.getDeltaTime(), ship);
 				
-				if(ship.getBounds().overlaps(enemy.getBounds()))
-					Gdx.app.log(MySampleGame.LOG, "SHIP HIT :0");
-				
-				if(enemy.getBounds().overlaps(bullet.getBounds())) {
+				if (enemy.getBounds().overlaps(bullet.getBounds())) {
 					Gdx.app.log(MySampleGame.LOG, "Enemy Hit :)");
 					eIter.remove();
 					bIter.remove();

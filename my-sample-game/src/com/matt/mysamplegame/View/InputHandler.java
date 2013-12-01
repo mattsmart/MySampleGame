@@ -21,7 +21,7 @@ public class InputHandler implements InputProcessor{
 	@Override
 	public boolean keyDown(int keycode) {
 		ship = world.getShip();
-		switch(keycode) {
+		switch (keycode) {
 			case Keys.W:
 				ship.getVelocity().y = 1;
 				break;
@@ -43,21 +43,21 @@ public class InputHandler implements InputProcessor{
 	@Override
 	public boolean keyUp(int keycode) {
 		ship = world.getShip();
-		switch(keycode) {
+		switch (keycode) {
 			case Keys.W:
-				if(ship.getVelocity().y == 1)
+				if (ship.getVelocity().y == 1)
 				ship.getVelocity().y = 0;
 				break;
 			case Keys.S:
-				if(ship.getVelocity().y == -1)
+				if (ship.getVelocity().y == -1)
 				ship.getVelocity().y = 0;
 				break;
 			case Keys.A:
-				if(ship.getVelocity().x == -1)
+				if (ship.getVelocity().x == -1)
 				ship.getVelocity().x = 0;
 				break;
 			case Keys.D:
-				if(ship.getVelocity().x == 1)
+				if (ship.getVelocity().x == 1)
 				ship.getVelocity().x = 0;
 				break;
 			default:
@@ -79,8 +79,8 @@ public class InputHandler implements InputProcessor{
 		ship = world.getShip();
 		world.addBullet(new Bullet(Bullet.SPEED, // speed
 				0, // rot
-				//new Vector2(ship.getPosition().x + ship.getWidth() / 2, ship.getPosition().y + ship.getHeight() / 2), // pos
-				new Vector2(ship.getPosition().x, ship.getPosition().y), // pos
+				new Vector2(ship.getPosition().x + ship.getWidth() / 2, ship.getPosition().y + ship.getHeight() / 2), // pos
+				//new Vector2(ship.getPosition().x, ship.getPosition().y), // pos
 				.1f, .4f, // width and height
 				new Vector2(vec2Touch.sub(ship.getPosition()).nor()))); // velocity
 		return true;

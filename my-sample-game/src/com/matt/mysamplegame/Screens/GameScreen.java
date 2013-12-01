@@ -48,6 +48,7 @@ public class GameScreen implements Screen {
 	@Override
 	public void dispose() {
 		world.dispose();
+		render.dispose();
 	}
 
 }
